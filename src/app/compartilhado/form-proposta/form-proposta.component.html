@@ -1,0 +1,110 @@
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="nome">Nome</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="nome"
+        required
+        [(ngModel)]="proposta.nome"
+        #nome="ngModel"
+        name="nome"
+        [class.is-invalid]="!nome.valid && nome.touched">
+        <div *ngIf="!nome.valid && nome.touched">
+          campo obrigatório
+        </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="descricao">Descrição</label>
+    <textarea 
+      class="form-control" 
+      id="descricao" 
+      rows="3"
+      name="descricao"
+      [(ngModel)]="proposta.descricao"
+      #descricao="ngModel"
+      [class.is-invalid]="!descricao.valid && descricao.touched"
+      required>
+      
+    </textarea>
+    <div *ngIf="!descricao.valid && descricao.touched" class="text-danger">
+      campo obrigatório
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer01">Data Inicial</label> <br>
+      <input 
+        type="date"
+        id="dataInicio"
+        required
+        class="form-control"
+        name="dataInicio"
+        [(ngModel)]="proposta.dataInicio"
+        #dataInicio="ngModel"
+        [class.is-invalid]="!dataInicio.valid && dataInicio.touched"
+        >
+        <div *ngIf="!dataInicio.valid && dataInicio.touched">
+          Informe a data corretamente
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="validationServer01">Data Final</label> <br>
+        <input 
+          type="date"
+          id="dataFim"
+          required
+          class="form-control"
+          name="dataFim"
+          [(ngModel)]="proposta.dataFim"
+          #dataFim="ngModel"
+          [class.is-invalid]="!dataFim.valid && dataFim.touched"
+          >
+          <div *ngIf="!dataFim.valid && dataFim.touched">
+            Informe a data corretamente
+          </div>
+      </div>
+   
+  </div>
+  <div class="input-group col-md-4 mb-4">
+    <div class="input-group-prepend">
+      <span class="input-group-text">R$</span>
+    </div>
+    <input 
+      type="text" 
+      class="form-control" 
+      aria-label="Quantia" 
+      required
+      id="valor"
+      name="valor"
+      [(ngModel)]="proposta.valor"
+      #valor="ngModel"
+      [class.is-invalid]="!valor.valid && valor.touched">
+      <div *ngIf="!valor.valid && valor.touched">
+        informe um valor corretamente
+      </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer01">Cidade</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="cidade" 
+        name="cidade"
+        [(ngModel)]="proposta.Cidade"
+        #cidade="ngModel"
+        [class.is-invalid]="!cidade.valid && cidade.touched" 
+        required
+        >
+        <div *ngIf="!cidade.valid && cidade.touched">
+          Informe uma cidade corretamente
+        </div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Salvar</button>
+</form>

@@ -1,0 +1,15 @@
+
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <app-error-msg></app-error-msg>
+        <div class="card-header">
+          Cadastrar Nova Proposta
+        </div>
+        <div class="card-body">
+          <app-form-proposta [proposta]="proposta" (outputtProposta)="atualizaProposta($event)"></app-form-proposta>
+           
+        </div>
+      </div>
+    </div>
+  </div>
